@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+function chageLangSelect(){
+    var langSelect = document.getElementById("id-lang");
+     
+    // select element에서 선택된 option의 value가 저장된다.
+    var selectValue = langSelect.options[langSelect.selectedIndex].value;
+ 
+    // select element에서 선택된 option의 text가 저장된다.
+    var selectText = langSelect.options[langSelect.selectedIndex].text;
+    alert(selectText);
+}
+</script>
+</head>
+<body>
+<select id="id-lang"" name="lang" onchange="chageLangSelect()">
+<option value="" selected disabled>언어를 선택</option>              
+<option value="en">en(영어)</option>
+<option value="ko">ko(한글)</option>
+</select>
+</body>
+</html>
+

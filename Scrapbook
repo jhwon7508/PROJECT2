@@ -1,0 +1,42 @@
+CREATE database shoesmall;
+
+CREATE TABLE member(
+memId varchar(20) PRIMARY KEY,
+memName varchar(20) NOT NULL,
+memPw varchar(20) NOT NULL,
+memAddr varchar(60),
+memTel varchar(20),
+memEmail varchar(30)
+)default charset=utf8 collate utf8_general_ci;
+
+insert into member values('root','�솉湲몃룞','1234','�꽌�슱�떆','010-1234-1234','abc@naver.com');
+
+create table product (
+proId int PRIMARY KEY AUTO_INCREMENT,
+proName varchar(60),
+proPrice int,
+proImg varchar(60),
+proExp varchar(60),
+proSort varchar(20)
+)default charset=utf8 collate utf8_general_ci;
+
+CREATE TABLE bbs(
+bbsNum int PRIMARY KEY AUTO_INCREMENT,
+bbsProId int,
+bbsName varchar(20),
+bbsDate varchar(20),
+bbsContent varchar(100),
+FOREIGN KEY (bbsProId) REFERENCES product (proId),
+FOREIGN KEY (bbsName) REFERENCES member (memId)
+)default charset=utf8 collate utf8_general_ci;
+
+CREATE TABLE orderT(
+orderId varchar(30),
+orderMId varchar(20),
+orderPId int,
+orderCount int,
+orderSize varchar(20),
+orderDate varchar(20),
+FOREIGN KEY (orderMId) REFERENCES member (memId),
+FOREIGN KEY (orderPId) REFERENCES product (proId)
+)default charset=utf8 collate utf8_general_ci;
